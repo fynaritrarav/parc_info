@@ -1,6 +1,6 @@
 <?php
 class Model {
-    private $connection;
+    protected $connection;
     protected $table;
 
     /**
@@ -25,4 +25,8 @@ class Model {
         $stmt->execute();
         return $stmt->fetch();
     }
+
+
+
+
 }

@@ -13,11 +13,11 @@
     define('CONTROLLERS', ROOT . 'app/controllers/');
     define('ROUTER', ROOT . 'routes/routes.php');
 
-    define('ASSETS', 'http://' . HOST . '/public/assets');
+    define('ASSETS',  HOST . '/public/assets/');
 
     define('DB_HOSTNAME', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '');
-    define('DB_DATABASE', 'parcinfomvc');
+    define('DB_DATABASE', 'parc_informatique');
 
 ?>
