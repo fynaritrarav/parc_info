@@ -26,25 +26,26 @@
         </ul>
     </div>
     
-    <form action="buttonUser" method="post">
-        <div class="contenu_resultat">
+    <div class="contenu_resultat">
+        <form action="buttonUser" method="post">
             <div class="contenu_bouton">
                 <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
                 <button type="submit" name="btnAddUser" btnAddUser class="btn">Ajouter</button>
             </div>
-        
-            <div class="contenu_resultat_utilisateur">
+        </form>
 
-                <form action="">
+        <div class="contenu_resultat_utilisateur">
 
-                    <input type="text" name="research">
+            <form action="">
 
-                    <button type="submit">Rechercher</button>
+                <input type="text" name="research">
 
-                </form>
+                <button type="submit">Rechercher</button>
 
-            </div>
+            </form>
+
         </div>
+    </div>
         
     </form>
 

@@ -18,7 +18,7 @@
             <li><a href="logiciels.php">Logiciels</a></li>
             <li><a href="peripheriques.php">Périphériques</a></li>
             <li><a href="listUser">Utilisateurs</a></li>
-            <li><a href="listFournisseur">Fournisseurs</a></li>
+            <li><a href="fournisseurs.php">Fournisseurs</a></li>
             <li><a href="emplacements.php">Emplacements</a></li>
             <li><a href="stock.php">Stock</a></li>
             <li><a href="requeteur.php">Requêteur</a></li>
@@ -26,10 +26,10 @@
     </div>
     
     <div class="contenu_resultat">
-        <form action="buttonFournisseur" method="post">
+        <form action="buttonMachine" method="post">
             <div class="contenu_bouton">
-                <button type="submit" name="btnResearchFournisseur" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddFournisseur" btnAddUser class="btn">Ajouter</button>
+                <button type="submit" name="btnResearchMachine" class="btn">Rechercher</button>
+                <button type="submit" name="btnAddMachine" btnAddUser class="btn">Ajouter</button>
             </div>
         </form>
         
@@ -40,20 +40,28 @@
                     <tr>
                         <th>Id</th>
                         <th>Nom</th>
-                        <th>Email</th>
-                        <th>Adresse</th>
-                        <th>Téléphone</th>
+                        <th>Utilisateur</th>
+                        <th>Fournisseur</th>
+                        <th>Fabricant</th>
+                        <th>Modèle</th>
+                        <th>Numéro de série</th>
+                        <th>Intervention</th>
+                        <th>Emplacement</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($fournisseurs)): ?>
-                        <?php foreach ($fournisseurs as $fournisseur): ?>
+                    <?php if (!empty($machines)): ?>
+                        <?php foreach ($machines as $machine): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($fournisseur['id_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['name_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['email_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['adress_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['phone_fournisseur']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['id_machine']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['nom_machine']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['utilisateur_machine']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['fournisseur_machine']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['fabricant_machine']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['modele_machine']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['num_serie']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['intervention_machine']) ?></td>
+                                <td><?php echo htmlspecialchars($machine['emplacement_machine']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>

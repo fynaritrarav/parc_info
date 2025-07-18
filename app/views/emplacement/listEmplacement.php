@@ -18,7 +18,7 @@
             <li><a href="logiciels.php">Logiciels</a></li>
             <li><a href="peripheriques.php">Périphériques</a></li>
             <li><a href="listUser">Utilisateurs</a></li>
-            <li><a href="listFournisseur">Fournisseurs</a></li>
+            <li><a href="fournisseurs.php">Fournisseurs</a></li>
             <li><a href="emplacements.php">Emplacements</a></li>
             <li><a href="stock.php">Stock</a></li>
             <li><a href="requeteur.php">Requêteur</a></li>
@@ -26,10 +26,10 @@
     </div>
     
     <div class="contenu_resultat">
-        <form action="buttonFournisseur" method="post">
+        <form action="buttonUser" method="post">
             <div class="contenu_bouton">
-                <button type="submit" name="btnResearchFournisseur" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddFournisseur" btnAddUser class="btn">Ajouter</button>
+                <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
+                <button type="submit" name="btnAddUser" btnAddUser class="btn">Ajouter</button>
             </div>
         </form>
         
@@ -40,20 +40,18 @@
                     <tr>
                         <th>Id</th>
                         <th>Nom</th>
-                        <th>Email</th>
-                        <th>Adresse</th>
-                        <th>Téléphone</th>
+                        <th>Description</th>
+                        <th>Chemin</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($fournisseurs)): ?>
-                        <?php foreach ($fournisseurs as $fournisseur): ?>
+                    <?php if (!empty($emplacements)): ?>
+                        <?php foreach ($emplacements as $emplacement): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($fournisseur['id_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['name_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['email_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['adress_fournisseur']) ?></td>
-                                <td><?php echo htmlspecialchars($fournisseur['phone_fournisseur']) ?></td>
+                                <td><?php echo htmlspecialchars($emplacement['id_emplacement']) ?></td>
+                                <td><?php echo htmlspecialchars($emplacement['nom_emplacement']) ?></td>
+                                <td><?php echo htmlspecialchars($emplacement['description_emplacement']) ?></td>
+                                <td><?php echo htmlspecialchars($emplacement['chemin_emplacement']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>

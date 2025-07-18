@@ -25,48 +25,46 @@
         </ul>
     </div>
     
-    <form action="buttonUser" method="post">
-        <div class="contenu_resultat">
+    <div class="contenu_resultat">
+        <form action="buttonUser" method="post">
             <div class="contenu_bouton">
                 <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
                 <button type="submit" name="btnAddUser" btnAddUser class="btn">Ajouter</button>
             </div>
+        </form>
         
-            <div class="contenu_resultat_utilisateur">
+        <div class="contenu_resultat_utilisateur">
 
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Nom</th>
-                            <th>Email</th>
-                            <th>Adresse</th>
-                            <th>Téléphone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (!empty($users)): ?>
-                            <?php foreach ($users as $user): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($user['id_user']) ?></td>
-                                    <td><?php echo htmlspecialchars($user['name_user']) ?></td>
-                                    <td><?php echo htmlspecialchars($user['email_user']) ?></td>
-                                    <td><?php echo htmlspecialchars($user['adress_user']) ?></td>
-                                    <td><?php echo htmlspecialchars($user['phone_user']) ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr><td colspan="4">Aucun utilisateur trouvé.</td></tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($users)): ?>
+                        <?php foreach ($users as $user): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($user['id_user']) ?></td>
+                                <td><?php echo htmlspecialchars($user['name_user']) ?></td>
+                                <td><?php echo htmlspecialchars($user['email_user']) ?></td>
+                                <td><?php echo htmlspecialchars($user['adress_user']) ?></td>
+                                <td><?php echo htmlspecialchars($user['phone_user']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr><td colspan="4">Aucun utilisateur trouvé.</td></tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
 
 
-            </div>
         </div>
-        
-    </form>
-
-    
+    </div>
+           
 </body>
 </html>

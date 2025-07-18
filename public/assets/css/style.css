@@ -70,6 +70,7 @@ a{
 
 .contenu_resultat{
     display: flex;
+    justify-content: space-around;
     /* justify-content: center; */
     width: 100%;
 }
@@ -77,8 +78,8 @@ a{
 .contenu_bouton{
     display: flex;
     flex-direction: column;
-    width: 25%;
-    padding: 30px 100px 30px 10px;
+    width: 200%;
+    /* padding: 30px 100px 30px 10px; */
 }
 
 .btn{
@@ -93,7 +94,7 @@ a{
 }
 
 .contenu_resultat_utilisateur{
-    width: 75%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;

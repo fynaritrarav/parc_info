@@ -37,4 +37,16 @@ class Fournisseur extends Model{
         $this->phone_fournisseur = $phone_fournisseur;
     }
 
+    public function add(){
+        $query = "INSERT INTO $this->table (name_fournisseur, email_fournisseur, adress_fournisseur, phone_fournisseur) VALUES (:name_fournisseur, :email_fournisseur, :adress_fournisseur, :phone_fournisseur)";
+        $stmt = $this->connection->prepare($query);
+        
+        return $stmt->execute([
+            ':name_fournisseur'=>$this->name_fournisseur,
+            'email_fournisseur'=>$this->email_fournisseur,
+            'adress_fournisseur'=>$this->adress_fournisseur,
+            'phone_fournisseur'=>$this->phone_fournisseur
+        ]);
+    }
+
 }

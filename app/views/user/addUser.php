@@ -27,16 +27,16 @@
         </ul>
     </div>
     
-    <form action="buttonUser" method="post">
-        <div class="contenu_resultat">
+    <div class="contenu_resultat">
+        <form action="buttonUser" method="post">
             <div class="contenu_bouton">
                 <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
                 <button type="submit" name="btnAddUser" btnAddUser class="btn">Ajouter</button>
             </div>
-        
-            <div class="contenu_resultat_utilisateur">
+        </form>
 
-                <form action="store" method="POST" >
+        <div class="contenu_resultat_utilisateur">
+            <form action="storeUser" method="POST" >
                 <div>
                     <label for="">Name</label>
                     <input type="text" name = "name_user">
@@ -56,12 +56,11 @@
 
                 <button type="submit">Create</button>
                 
-                </form>
+            </form>
 
-            </div>
         </div>
+    </div>
         
-    </form>
 
 </body>
 </html>
