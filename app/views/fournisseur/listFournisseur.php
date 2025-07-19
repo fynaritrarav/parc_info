@@ -29,7 +29,7 @@
         <form action="buttonFournisseur" method="post">
             <div class="contenu_bouton">
                 <button type="submit" name="btnResearchFournisseur" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddFournisseur" btnAddUser class="btn">Ajouter</button>
+                <button type="submit" name="btnAddFournisseur" class="btn">Ajouter</button>
             </div>
         </form>
         

@@ -28,22 +28,22 @@
     </div>
     
     <div class="contenu_resultat">
-        <form action="buttonMachine" method="post">
+        <form action="buttonPeripherique" method="post">
             <div class="contenu_bouton">
-                <button type="submit" name="btnResearchMachine" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddMachine" class="btn">Ajouter</button>
+                <button type="submit" name="btnResearchPeripherique" class="btn">Rechercher</button>
+                <button type="submit" name="btnAddPeripherique" class="btn">Ajouter</button>
             </div>
         </form>
 
         <div class="contenu_resultat_utilisateur">
-            <form action="storeMachine" method="POST" >
+            <form action="storePeripherique" method="POST" >
                 <div>
                     <label for="">Nom</label>
-                    <input type="text" name = "nom_machine">
+                    <input type="text" name = "nom_peripherique" required>
                 </div>  
                 <div>
                     <label for="">Utilisateur :</label><br>
-                    <select  name="utilisateur_machine" required>
+                    <select  name="utilisateur_peripherique" required>
                         <option value="">-- Choisir un utilisateur --</option>
                         <?php foreach($utilisateurs as $utilisateur): ?>
                         <option value="<?= htmlspecialchars($utilisateur['id_user']) ?>">
@@ -54,7 +54,7 @@
                 </div>
                 <div>
                     <label for="">Fournisseur:</label><br>
-                    <select  name="fournisseur_machine" required>
+                    <select  name="fournisseur_peripherique" required>
                         <option value="">-- Choisir un fournisseur --</option>
                         <?php foreach($fournisseurs as $fournisseur): ?>
                         <option value="<?= htmlspecialchars($fournisseur['id_fournisseur']) ?>">
@@ -65,24 +65,24 @@
                 </div> 
                 <div>
                     <label for="">Fabricant</label>
-                    <input type="text" name = "fabricant_machine">
+                    <input type="text" name = "fabricant_peripherique" required>
                 </div>    
                 <div>
                     <label for="">Modele</label>
-                    <input type="text" name = "modele_machine">
+                    <input type="text" name = "modele_peripherique" required>
                 </div> 
                 <div>
                     <label for="">Numero série</label>
-                    <input type="text" name = "num_serie">
+                    <input type="text" name = "numero_serie" required>
                 </div>
 
                 <div>
                     <label for="">Intervention</label>
-                    <input type="text" name = "intervention_machine">
+                    <input type="text" name = "intervention_peripherique" required>
                 </div>
                 <div>
                     <label for="">Emplacement:</label><br>
-                    <select  name="emplacement_machine" required>
+                    <select  name="emplacement_peripherique" required>
                         <option value="">-- Choisir un emplacement --</option>
                         <?php foreach($emplacements as $emplacement): ?>
                         <option value="<?= htmlspecialchars($emplacement['id_emplacement']) ?>">

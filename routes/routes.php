@@ -21,6 +21,8 @@ Router::get('/fournisseur/researchFournisseur', 'FournisseurController','researc
 Router::get('/emplacement/addEmplacement', 'EmplacementController','addEmplacement');
 Router::post('/emplacement/storeEmplacement', 'EmplacementController','storeEmplacement');
 Router::get('/emplacement/listEmplacement', 'EmplacementController','listEmplacement');
+Router::post('/emplacement/buttonEmplacement', 'EmplacementController', 'buttonEmplacement');
+Router::get('/emplacement/researchEmplacement', 'EmplacementController', 'researchEmplacement');
 
 Router::get('/machine/addMachine', 'MachineController','addMachine');
 Router::post('/machine/storeMachine', 'MachineController','storeMachine');
@@ -28,5 +30,9 @@ Router::get('/machine/listMachine', 'MachineController','listMachine');
 Router::post('/machine/buttonMachine', 'MachineController','buttonMachine');
 Router::get('/machine/researchMachine', 'MachineController','researchMachine');
 
-
+Router::get('/peripherique/addPeripherique', 'PeripheriqueController', 'addPeripherique');
+Router::post('/peripherique/storePeripherique', 'PeripheriqueController', 'storePeripherique');
+Router::get('/peripherique/listPeripherique', 'PeripheriqueController', 'listPeripherique');
+Router::post('/peripherique/buttonPeripherique', 'PeripheriqueController', 'buttonPeripherique');
+Router::get('/peripherique/researchPeripherique', 'PeripheriqueController', 'researchPeripherique');
 

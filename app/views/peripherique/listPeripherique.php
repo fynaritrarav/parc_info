@@ -26,10 +26,10 @@
     </div>
     
     <div class="contenu_resultat">
-        <form action="buttonMachine" method="post">
+        <form action="buttonPeripherique" method="post">
             <div class="contenu_bouton">
-                <button type="submit" name="btnResearchMachine" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddMachine" class="btn">Ajouter</button>
+                <button type="submit" name="btnResearchPeripherique" class="btn">Rechercher</button>
+                <button type="submit" name="btnAddPeripherique" class="btn">Ajouter</button>
             </div>
         </form>
         
@@ -50,18 +50,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($machines)): ?>
-                        <?php foreach ($machines as $machine): ?>
+                    <?php if (!empty($peripheriques)): ?>
+                        <?php foreach ($peripheriques as $peripherique): ?>
                             <tr>
-                                <td><?= htmlspecialchars($machine['id_machine']) ?></td>
-                                <td><?= htmlspecialchars($machine['nom_machine']) ?></td>
-                                <td><?= htmlspecialchars($machine['name_user']) ?></td>
-                                <td><?= htmlspecialchars($machine['name_fournisseur']) ?></td>
-                                <td><?= htmlspecialchars($machine['fabricant_machine']) ?></td>
-                                <td><?= htmlspecialchars($machine['modele_machine']) ?></td>
-                                <td><?= htmlspecialchars($machine['num_serie']) ?></td>
-                                <td><?= htmlspecialchars($machine['intervention_machine']) ?></td>
-                                <td><?= htmlspecialchars($machine['emplacement_machine']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['id_peripherique']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['nom_peripherique']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['name_user']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['name_fournisseur']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['fabricant_peripherique']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['modele_peripherique']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['numero_serie']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['intervention_peripherique']) ?></td>
+                                <td><?= htmlspecialchars($peripherique['emplacement_peripherique']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>

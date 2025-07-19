@@ -34,5 +34,26 @@ class EmplacementController extends Controller{
 
     }
 
+    public function researchEmplacement(){
+        
+        return $this->render('emplacement/researchEmplacement');
+
+    }
+
+    public function buttonEmplacement(){
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if(isset($_POST['btnResearchEmplacement'])){
+                header('Location: researchEmplacement');
+            }
+            else if (isset($_POST['btnAddEmplacement'])) {
+                header('Location: addEmplacement');
+            }
+            else {
+                echo "Aucun bouton cliqué";
+            }
+        }
+    }
+
 }
 

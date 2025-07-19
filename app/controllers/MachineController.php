@@ -7,7 +7,7 @@ class MachineController extends Controller{
         $fournisseurModel = new Fournisseur();
         $emplacementModel = new Emplacement();
 
-        $utilisateurs = $userModel->findAll();       
+        $utilisateurs = $userModel->findAll();
         $fournisseurs = $fournisseurModel->findAll();
         $emplacements = $emplacementModel->findAll();
 
@@ -46,7 +46,7 @@ class MachineController extends Controller{
         
         $machineModel = new Machine();
 
-        $machines = $machineModel->findAll();
+        $machines = $machineModel->findAll_Name();
 
         return $this->render('machine/listMachine', ['machines' => $machines]);
 

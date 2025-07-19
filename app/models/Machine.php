@@ -77,7 +77,7 @@ class Machine extends Model{
 
     public function add(){
         $query = "INSERT INTO $this->table (nom_machine, utilisateur_machine, fournisseur_machine, fabricant_machine, modele_machine, num_serie, intervention_machine, emplacement_machine) VALUES (:nom_machine, :utilisateur_machine, :fournisseur_machine, :fabricant_machine, :modele_machine, :num_serie, :intervention_machine, :emplacement_machine)";
-        $stmt=$this->connection->prepare($query);
+        $stmt = $this->connection->prepare($query);
         
         return $stmt->execute([
             ':nom_machine'=>$this->nom_machine,
@@ -89,5 +89,15 @@ class Machine extends Model{
             ':intervention_machine'=>$this->intervention_machine,
             ':emplacement_machine'=>$this->emplacement_machine
         ]);
+    }
+
+    public function findAll_Name(){
+        $query = "SELECT m.*, u.name_user, f.name_fournisseur
+                  FROM $this->table m
+                  LEFT JOIN users u ON m.utilisateur_machine = u.id_user
+                  LEFT JOIN fournisseurs f ON m.fournisseur_machine = f.id_fournisseur";
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }

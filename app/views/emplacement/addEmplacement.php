@@ -28,10 +28,10 @@
     </div>
     
     <div class="contenu_resultat">
-        <form action="buttonUser" method="post">
+        <form action="buttonEmplacement" method="post">
             <div class="contenu_bouton">
-                <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddUser" btnAddUser class="btn">Ajouter</button>
+                <button type="submit" name="btnResearchEmplacement" class="btn">Rechercher</button>
+                <button type="submit" name="btnAddEmplacement" class="btn">Ajouter</button>
             </div>
         </form>
 
