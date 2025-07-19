@@ -30,7 +30,7 @@
         <form action="buttonUser" method="post">
             <div class="contenu_bouton">
                 <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddUser" btnAddUser class="btn">Ajouter</button>
+                <button type="submit" name="btnAddUser" class="btn">Ajouter</button>
             </div>
         </form>
 

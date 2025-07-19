@@ -26,10 +26,10 @@
     </div>
     
     <div class="contenu_resultat">
-        <form action="buttonUser" method="post">
+        <form action="buttonLogiciel" method="post">
             <div class="contenu_bouton">
-                <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddUser" class="btn">Ajouter</button>
+                <button type="submit" name="btnResearchLogiciel" class="btn">Rechercher</button>
+                <button type="submit" name="btnAddLogiciel" class="btn">Ajouter</button>
             </div>
         </form>
         
@@ -40,20 +40,24 @@
                     <tr>
                         <th>Id</th>
                         <th>Nom</th>
-                        <th>Email</th>
-                        <th>Adresse</th>
-                        <th>Téléphone</th>
+                        <th>Description</th>
+                        <th>Editeur</th>
+                        <th>Version</th>
+                        <th>Type</th>
+                        <th>Machine</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($users)): ?>
-                        <?php foreach ($users as $user): ?>
+                    <?php if (!empty($logiciels)): ?>
+                        <?php foreach ($logiciels as $logiciel): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($user['id_user']) ?></td>
-                                <td><?php echo htmlspecialchars($user['name_user']) ?></td>
-                                <td><?php echo htmlspecialchars($user['email_user']) ?></td>
-                                <td><?php echo htmlspecialchars($user['adress_user']) ?></td>
-                                <td><?php echo htmlspecialchars($user['phone_user']) ?></td>
+                                <td><?= htmlspecialchars($logiciel['id_logiciel']) ?></td>
+                                <td><?= htmlspecialchars($logiciel['nom_logiciel']) ?></td>
+                                <td><?= htmlspecialchars($logiciel['description_logiciel']) ?></td>
+                                <td><?= htmlspecialchars($logiciel['editeur_logiciel']) ?></td>
+                                <td><?= htmlspecialchars($logiciel['version_logiciel']) ?></td>
+                                <td><?= htmlspecialchars($logiciel['type_logiciel']) ?></td>
+                                <td><?= htmlspecialchars($logiciel['nom_machine']) ?></td>                          
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>

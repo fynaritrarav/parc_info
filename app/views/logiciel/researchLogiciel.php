@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
 </head>
 <body>
 
-    <div class="contenu_header">
+<div class="contenu_header">
         <img src="<?= ASSETS ?>css/logo_onifr.png" alt="error">
         <p>Gestion du parc informatique du SIP</p>
     </div>
@@ -28,39 +27,29 @@
     </div>
     
     <div class="contenu_resultat">
-        <form action="buttonUser" method="post">
+        <form action="buttonLogiciel" method="post">
             <div class="contenu_bouton">
-                <button type="submit" name="btnResearchUser" class="btn">Rechercher</button>
-                <button type="submit" name="btnAddUser" class="btn">Ajouter</button>
+                <button type="submit" name="btnResearchLogiciel" class="btn">Rechercher</button>
+                <button type="submit" name="btnAddLogiciel" class="btn">Ajouter</button>
             </div>
         </form>
 
         <div class="contenu_resultat_utilisateur">
-            <form action="storeUser" method="POST" >
-                <div>
-                    <label for="">Name</label>
-                    <input type="text" name = "name_user">
-                </div>   
-                <div>
-                    <label for="">Email</label>
-                    <input type="text" name = "email_user">
-                </div>    
-                <div>
-                    <label for="">Adress</label>
-                    <input type="text" name = "adress_user">
-                </div> 
-                <div>
-                    <label for="">Phone</label>
-                    <input type="text" name = "phone_user">
-                </div>
 
-                <button type="submit">Create</button>
-                
+            <form action="">
+
+                <input type="text" name="research">
+
+                <button type="submit">Rechercher</button>
+
             </form>
 
         </div>
     </div>
         
+    </form>
 
+
+        
 </body>
 </html>

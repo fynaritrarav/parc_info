@@ -36,3 +36,10 @@ Router::get('/peripherique/listPeripherique', 'PeripheriqueController', 'listPer
 Router::post('/peripherique/buttonPeripherique', 'PeripheriqueController', 'buttonPeripherique');
 Router::get('/peripherique/researchPeripherique', 'PeripheriqueController', 'researchPeripherique');
 
+Router::get('/logiciel/addLogiciel', 'LogicielController', 'addLogiciel');
+Router::post('/logiciel/storeLogiciel', 'LogicielController', 'storeLogiciel');
+Router::get('/logiciel/listLogiciel', 'LogicielController', 'listLogiciel');
+Router::post('/logiciel/buttonLogiciel', 'LogicielController', 'buttonLogiciel');
+Router::get('/logiciel/researchLogiciel', 'LogicielController', 'researchLogiciel');
+
+

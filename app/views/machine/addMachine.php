@@ -46,9 +46,9 @@
                     <select  name="utilisateur_machine" required>
                         <option value="">-- Choisir un utilisateur --</option>
                         <?php foreach($utilisateurs as $utilisateur): ?>
-                        <option value="<?= htmlspecialchars($utilisateur['id_user']) ?>">
-                            <?= htmlspecialchars($utilisateur['name_user']) ?>
-                        </option>
+                            <option value="<?= htmlspecialchars($utilisateur['id_user']) ?>">
+                                <?= htmlspecialchars($utilisateur['name_user']) ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
