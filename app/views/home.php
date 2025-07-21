@@ -14,13 +14,13 @@
     <div class="contenu_menu">
         <p>Machines</p>
         <ul class = "menu">
-            <li><a href="machines.php">Machines</a></li>
-            <li><a href="logiciels.php">Logiciels</a></li>
-            <li><a href="peripheriques.php">Périphériques</a></li>
+            <li><a href="machine/listMachine">Machines</a></li>
+            <li><a href="logiciel/listLogiciel">Logiciels</a></li>
+            <li><a href="peripherique/listPeripherique">Périphériques</a></li>
             <li><a href="user/listUser">Utilisateurs</a></li>
             <li><a href="fournisseur/listFournisseur">Fournisseurs</a></li>
-            <li><a href="emplacements.php">Emplacements</a></li>
-            <li><a href="stock.php">Stock</a></li>
+            <li><a href="emplacement/listEmplacement">Emplacements</a></li>
+            <li><a href="stock/listStock">Stock</a></li>
             <li><a href="requeteur.php">Requêteur</a></li>
         </ul>
     </div>

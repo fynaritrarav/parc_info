@@ -1,22 +1,92 @@
 <?php
 
 class UserController extends Controller{
+    private $user;
+
+    public function __construct(){
+        parent::__construct();
+        $this->user = new User();
+    }
+
+    public function login(){
+
+        return $this->render('user/login');
+
+    }
+
+
+    public function loginVerify(){
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $user = $this->user->passwordVerify($_POST['name_user'], $_POST['pwd_user']);
+            if ($user) {
+                $_SESSION['user'] = $user;
+                if ($user['change_pwd']) {
+                    header('Location: changeMdp');
+                }
+                else {
+                    header('Location: ' . HOST . 'home');
+                }
+            }
+            else {
+                echo 'Utilisateur invalide';
+            }
+        }
+
+    }
+
+    public function changeMdp(){
+
+        if (!isset($_SESSION['user'])) {
+            header('Location: login');
+        }
+        else if($_SESSION['user']['role_user'] !== 'admin'){
+            return $this->render('user/changerMdp');
+        }
+        else {
+            header('Location: ' . HOST . 'home');
+        }
+
+    }
+
+    public function updateChangeMdp(){
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->user->setPwd($_POST['pwd_user']);
+            $this->user->updatePwd($_SESSION['user']['id_user'], $this->user->getPwd());
+            $_SESSION['user']['change_pwd'] = 0;
+            header('Location: home');
+            exit;
+        }
+
+    }
+
     public function addUser(){
 
-        return $this->render('user/addUser');
+        if ($_SESSION['user']['role_user'] !== 'admin') {
+            echo 'accès refusé';
+            return;
+        }
+        else {
+            return $this->render('user/addUser');
+        }
+
 
     }
 
     public function storeUser(){
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $user = new User();
 
-            $user->setName($_POST['name_user']);
-            $user->setEmail($_POST['email_user']);
-            $user->setAdress($_POST['adress_user']);
-            $user->setPhone($_POST['phone_user']);
+            $this->user->setName($_POST['name_user']);
+            $this->user->setEmail($_POST['email_user']);
+            $this->user->setAdress($_POST['adress_user']);
+            $this->user->setPhone($_POST['phone_user']);
+            $this->user->setPwd($_POST['pwd_user']);
+            $this->user->setRole($_POST['role_user']);
 
-            if ($user->add()) {
+            if ($this->user->add()) {
                 header('Location: listUser');
                 exit;
             }else {
@@ -27,16 +97,17 @@ class UserController extends Controller{
     }
 
     public function listUser(){
-        $userModel = new User();
 
-        $users= $userModel->findAll();
+        $users= $this->user->findAll();
 
         return $this->render('user/listUser',['users'=>$users]);
 
     }
 
     public function researchUser(){
+
         return $this->render('user/researchUser');
+        
     }
 
     public function buttonUser(){
@@ -45,6 +116,7 @@ class UserController extends Controller{
                 header('Location: researchUser');
             }
             else if(isset($_POST['btnAddUser'])){
+
                 header('Location: addUser');
             }
             else{

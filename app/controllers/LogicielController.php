@@ -2,11 +2,23 @@
 
 class LogicielController extends Controller{
 
+    private $logiciel;
+
+    public function __construct(){
+        parent::__construct();
+        $this->logiciel = new Logiciel();
+    }
+
     public function addLogiciel(){
 
-        $machineModel = new Machine();
+        if ($_SESSION['user']['role_user'] !== 'admin') {
+            echo 'accès refusé';
+            return;
+        }
 
-        $machines = $machineModel->findAll();
+        $machine = new Machine();
+
+        $machines = $machine->findAll();
 
         return $this->render('logiciel/addLogiciel', ['machines' => $machines]);
 
@@ -16,16 +28,14 @@ class LogicielController extends Controller{
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
-            $logiciel = new Logiciel();
+            $this->logiciel->setNom($_POST['nom_logiciel']);
+            $this->logiciel->setDescription($_POST['description_logiciel']);
+            $this->logiciel->setEditeur($_POST['editeur_logiciel']);
+            $this->logiciel->setVersion($_POST['version_logiciel']);
+            $this->logiciel->setType($_POST['type_logiciel']);
+            $this->logiciel->setMachine((int)$_POST['machine_logiciel']);
 
-            $logiciel->setNom($_POST['nom_logiciel']);
-            $logiciel->setDescription($_POST['description_logiciel']);
-            $logiciel->setEditeur($_POST['editeur_logiciel']);
-            $logiciel->setVersion($_POST['version_logiciel']);
-            $logiciel->setType($_POST['type_logiciel']);
-            $logiciel->setMachine((int)$_POST['machine_logiciel']);
-
-            if ($logiciel->add()) {
+            if ($this->logiciel->add()) {
                 header('Location: listLogiciel');
                 exit;
             }
@@ -38,9 +48,7 @@ class LogicielController extends Controller{
 
     public function listLogiciel(){
 
-        $logicielModel = new Logiciel();
-
-        $logiciels = $logicielModel->findAll_Name();
+        $logiciels = $this->logiciel->findAll_Name();
 
         return $this->render('logiciel/listLogiciel', ['logiciels' => $logiciels]);
 

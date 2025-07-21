@@ -1,5 +1,9 @@
 <?php
 
+Router::get('/user/login', 'UserController', 'login');
+Router::post('/user/loginVerify', 'UserController','loginVerify');
+Router::get('/user/changeMdp', 'UserController','changeMdp');
+Router::post('/user/updateChangeMdp', 'UserController','updateChangeMdp');
 Router::get('/user/addUser', 'UserController','addUser');
 Router::post('/user/storeUser', 'UserController','storeUser');
 Router::get('/user/listUser', 'UserController','listUser');

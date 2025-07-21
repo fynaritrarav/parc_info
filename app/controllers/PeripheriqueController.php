@@ -1,18 +1,29 @@
 <?php
 
 class PeripheriqueController extends Controller {
+    private $peripherique;
+
+    public function __construct(){
+        parent::__construct();
+        $this->peripherique = new Peripherique();
+    }
     public function addPeripherique() {
 
-        $utilisateurModel = new User();
+        if ($_SESSION['user']['role_user'] !== 'admin') {
+            echo 'accès refusé';
+            return;
+        }
+
+        $machineModel = new Machine();
         $fournisseurModel = new Fournisseur();
         $emplacementModel = new Emplacement();
 
-        $utilisateurs = $utilisateurModel->findAll();
+        $machines = $machineModel->findAll();
         $fournisseurs = $fournisseurModel->findAll();
         $emplacements = $emplacementModel->findAll();
 
         return $this->render('peripherique/addPeripherique', [
-            'utilisateurs' => $utilisateurs,
+            'machines' => $machines,
             'fournisseurs' => $fournisseurs,
             'emplacements' => $emplacements
         ]);
@@ -22,16 +33,14 @@ class PeripheriqueController extends Controller {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $peripherique = new Peripherique();
+            $this->peripherique->setNom($_POST['nom_peripherique']);
+            $this->peripherique->setUtilisateur($_POST['utilisateur_peripherique']);
+            $this->peripherique->setFournisseur($_POST['fournisseur_peripherique']);
+            $this->peripherique->setFabricant($_POST['fabricant_peripherique']);
+            $this->peripherique->setModele($_POST['modele_peripherique']);
+            $this->peripherique->setNumSerie($_POST['numero_serie']);
 
-            $peripherique->setNom($_POST['nom_peripherique']);
-            $peripherique->setUtilisateur($_POST['utilisateur_peripherique']);
-            $peripherique->setFournisseur($_POST['fournisseur_peripherique']);
-            $peripherique->setFabricant($_POST['fabricant_peripherique']);
-            $peripherique->setModele($_POST['modele_peripherique']);
-            $peripherique->setNumSerie($_POST['numero_serie']);
-
-            if ($peripherique->add()) {
+            if ($this->peripherique->add()) {
                 header('Location: listPeripherique');
                 exit;
             } else {
@@ -41,10 +50,8 @@ class PeripheriqueController extends Controller {
     }
 
     public function listPeripherique() {
-
-        $peripheriqueModel = new Peripherique();
         
-        $peripheriques = $peripheriqueModel->findAll_Name();
+        $peripheriques = $this->peripherique->findAll_Name();
 
         return $this->render('peripherique/listPeripherique', ['peripheriques' => $peripheriques]);
     }

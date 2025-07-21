@@ -14,13 +14,13 @@
     <div class="contenu_menu">
         <p>Machines</p>
         <ul class = "menu">
-            <li><a href="machines.php">Machines</a></li>
-            <li><a href="logiciels.php">Logiciels</a></li>
-            <li><a href="peripheriques.php">Périphériques</a></li>
+            <li><a href="<?= HOST ?>machine/listMachine">Machines</a></li>
+            <li><a href="<?= HOST ?>logiciel/listLogiciel">Logiciels</a></li>
+            <li><a href="<?= HOST ?>peripherique/listPeripherique">Périphériques</a></li>
             <li><a href="listUser">Utilisateurs</a></li>
-            <li><a href="fournisseurs.php">Fournisseurs</a></li>
-            <li><a href="emplacements.php">Emplacements</a></li>
-            <li><a href="stock.php">Stock</a></li>
+            <li><a href="<?= HOST ?>fournisseur/listFournisseur">Fournisseurs</a></li>
+            <li><a href="<?= HOST ?>emplacement/listEmplacement">Emplacements</a></li>
+            <li><a href="<?= HOST ?>stock/listStock">Stock</a></li>
             <li><a href="requeteur.php">Requêteur</a></li>
         </ul>
     </div>
@@ -43,6 +43,8 @@
                         <th>Email</th>
                         <th>Adresse</th>
                         <th>Téléphone</th>
+                        <th>Rôle</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +56,7 @@
                                 <td><?php echo htmlspecialchars($user['email_user']) ?></td>
                                 <td><?php echo htmlspecialchars($user['adress_user']) ?></td>
                                 <td><?php echo htmlspecialchars($user['phone_user']) ?></td>
+                                <td><?php echo htmlspecialchars($user['role_user']) ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
